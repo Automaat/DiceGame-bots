@@ -1,7 +1,7 @@
 package com.diceGame;
 
+import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import com.diceGame.players.Player;
 import lombok.AllArgsConstructor;
@@ -13,10 +13,10 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class GameContext {
 
-    private Map<Player, Set<Dice>> diceCombinations;
+    private Map<Player, List<Dice>> diceCombinations;
     private int desirableResult;
 
-    public Set<Dice> getDiceCombinationByPlayer(Player player) {
+    public List<Dice> getDiceCombinationByPlayer(Player player) {
         if (diceCombinations.containsKey(player)) {
             return diceCombinations.get(player);
         } else {

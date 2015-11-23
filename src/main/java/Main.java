@@ -1,7 +1,7 @@
 import java.util.HashMap;
-import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import com.diceGame.Dice;
 import com.diceGame.GameContext;
@@ -16,9 +16,9 @@ public class Main {
 
     public static void main(String[] args) {
         Player firstBot = BotFactory.createBot(Level.EASY, Game.N_PLUS);
-        Set<Dice> dices = new HashSet<Dice>();
+        List<Dice> dices = new LinkedList<>();
         dices.add(new Dice(5));
-        Map<Player, Set<Dice>> players = new HashMap<Player, Set<Dice>>();
+        Map<Player, List<Dice>> players = new HashMap<>();
         players.put(firstBot, dices);
         GameContext gameContext = new GameContext(players, ANY_DESIRABLE_RESULT);
 
