@@ -29,15 +29,15 @@ public class NPlusStrategy implements BotStrategy {
         if (toReroll == 0) {
             dicesToReroll = emptyList();
         } else if (toReroll > 0) {
-            dicesToReroll = tryToGetBiggerSum(dices, toReroll, onHandSum);
+            dicesToReroll = tryToGetBiggerSum(dices, toReroll);
         } else {
-            dicesToReroll = tryToGetLowerSum(dices, toReroll, onHandSum);
+            dicesToReroll = tryToGetLowerSum(dices, toReroll);
         }
 
         return new Decision(dicesToReroll);
     }
 
-    private List<Dice> tryToGetLowerSum(List<Dice> dices, int toReroll, Integer onHandSum) {
+    private List<Dice> tryToGetLowerSum(List<Dice> dices, int toReroll) {
         toReroll = -toReroll;
         List<Dice> dicesToReroll = new ArrayList<>(toReroll);
         for (int i = 0; i < toReroll; i++) {
@@ -53,7 +53,7 @@ public class NPlusStrategy implements BotStrategy {
         return dicesToReroll;
     }
 
-    private List<Dice> tryToGetBiggerSum(List<Dice> dices, int toReroll, Integer onHandSum) {
+    private List<Dice> tryToGetBiggerSum(List<Dice> dices, int toReroll) {
         List<Dice> dicesToReroll = new ArrayList<>(toReroll);
         for (int i = 0; i < toReroll; i++) {
             Dice bestCadidate = dices.get(FIRST_ELEMENT);
